@@ -35,21 +35,21 @@ namespace App3
         {
             if (maxattempts > 0 && loggedin!=1)
             {
-                if (username1.Text == "admin" && password.Password == "admin")
+                if (username1.Text == "admin" && password.Password == "admin") /* Logged in */
                     loggedin = 1;
-                else
+                else /* Wrong credentials. -1 attempts */
                     maxattempts--;
             }
 
-            if (maxattempts <= 0)
+            if (maxattempts <= 0) /* Out of attempts */
             {
                 maxattempts = 0;
                 info1.Text = "Too many failed login attempts.";
             }
-            else
+            else /* Login failed, but got more tries */
                 info1.Text = "Login failed. Remaining attempts: " + maxattempts;
 
-            if (loggedin == 1)
+            if (loggedin == 1) /* We have successfully logged on. */
                 this.Frame.Navigate(typeof(BlankPage1));
 
         }
